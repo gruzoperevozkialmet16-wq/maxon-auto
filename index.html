@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Максон Авто — выкуп и подбор авто в Альметьевске и по Татарстану</title>
+<meta name="description" content="Выкуп автомобилей в Альметьевске и по всему Татарстану, честный автоподбор под ключ. Расчёт в день сделки. 8 (939) 777-71-16 — WhatsApp, Telegram, MAX.">
+<meta name="theme-color" content="#070708">
+<meta property="og:title" content="Максон Авто — выкуп и подбор авто">
+<meta property="og:description" content="Выкуп авто в Альметьевске и по Татарстану. Честный автоподбор под ключ.">
+<meta property="og:image" content="img/new-hero.jpg">
+<link rel="icon" href="img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070708; --s1:#0f0f11; --s2:#16161a; --s3:#1e1e23;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --t:#f5f5f7; --m:#9b9ba5; --m2:#6e6e78;
+  --y:#ffc414; --y2:#ffd84d; --yglow:rgba(255,196,20,.35);
+  --r:28px; --max:1280px;
+  --d:"Unbounded",system-ui,sans-serif;
+  --b:"Manrope",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.75,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--t);font:500 17px/1.6 var(--b);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--y);color:#000}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{position:relative;scroll-margin-top:90px}
+.sec{padding:clamp(90px,11vw,150px) 0}
+
+/* type */
+.h1,.h2,.h3{font-family:var(--d);letter-spacing:-.03em;line-height:1}
+.h1{font-size:clamp(44px,8.4vw,124px);font-weight:700}
+.h2{font-size:clamp(34px,5.2vw,72px);font-weight:700}
+.h3{font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.y{color:var(--y)}
+.out{color:#55555e}
+.tag{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:13px;font-weight:600;color:#d6d6dc;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--y);box-shadow:0 0 0 4px rgba(255,196,20,.18);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,196,20,0)}}
+.lead{font-size:clamp(17px,1.4vw,19px);color:var(--m);max-width:560px;line-height:1.6}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:clamp(44px,5vw,70px)}
+.head .tag{margin-bottom:24px}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;height:60px;padding:0 30px;border-radius:999px;font:700 16px/1 var(--b);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,background .3s,border-color .3s;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-y{background:var(--y);color:#0a0a0a;box-shadow:0 10px 40px -10px var(--yglow)}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(255,196,20,.6);background:var(--y2)}
+.btn-y::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+.btn-y:hover::after{transform:translateX(120%)}
+.btn-g{background:rgba(255,255,255,.06);border:1px solid var(--line2);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn-g:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+.btn-k{background:#0a0a0a;color:#fff}
+.btn-k:hover{transform:translateY(-2px);background:#1a1a1a}
+
+/* header */
+.hdr{position:fixed;top:14px;left:0;right:0;z-index:60;padding:0 16px;pointer-events:none}
+.hdr-in{pointer-events:auto;max-width:var(--max);margin:0 auto;height:68px;display:flex;align-items:center;gap:28px;padding:0 10px 0 22px;border-radius:999px;background:rgba(15,15,17,.55);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:background .3s}
+.hdr.solid .hdr-in{background:rgba(12,12,14,.85)}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo-m{height:32px;width:auto}
+.logo-w{height:28px;width:auto}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{padding:10px 14px;border-radius:999px;font-size:14.5px;font-weight:600;color:#c4c4cc;transition:.2s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.hdr .btn{height:48px;padding:0 20px;font-size:14.5px}
+.burger{display:none;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.07);position:relative;margin-left:auto}
+.burger i,.burger i::before,.burger i::after{position:absolute;left:15px;right:15px;height:2px;border-radius:2px;background:#fff;content:"";transition:.3s var(--ease)}
+.burger i{top:23px}.burger i::before{left:0;right:0;top:-6px}.burger i::after{left:0;right:0;top:6px}
+.open .burger i{background:transparent}.open .burger i::before{top:0;transform:rotate(45deg)}.open .burger i::after{top:0;transform:rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:55;background:rgba(7,7,8,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;padding:100px 28px 40px;gap:4px;opacity:0;visibility:hidden;transition:.35s var(--ease)}
+.open .mnav{opacity:1;visibility:visible}
+.mnav a{font:600 clamp(28px,8vw,40px)/1.25 var(--d);letter-spacing:-.03em;transform:translateY(20px);opacity:0;transition:.5s var(--ease)}
+.open .mnav a{transform:none;opacity:1}
+.mnav a:nth-child(2){transition-delay:.04s}.mnav a:nth-child(3){transition-delay:.08s}.mnav a:nth-child(4){transition-delay:.12s}.mnav a:nth-child(5){transition-delay:.16s}.mnav a:nth-child(6){transition-delay:.2s}
+.mnav .btn{margin-top:30px;align-self:flex-start}
+
+/* hero */
+.hero{min-height:max(720px,100svh);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;padding:130px 0 40px}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:url(img/new-hero.jpg) 70% 60%/cover no-repeat;transform:scale(1.12);animation:zoom 2.8s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 60% at 75% 55%,transparent 0,rgba(7,7,8,.4) 70%),linear-gradient(90deg,rgba(7,7,8,.92) 0%,rgba(7,7,8,.55) 42%,rgba(7,7,8,0) 70%),linear-gradient(0deg,var(--bg) 0%,rgba(7,7,8,0) 38%)}
+.hero::after{content:"";position:absolute;z-index:-1;left:-10%;bottom:-30%;width:70%;height:70%;background:radial-gradient(closest-side,rgba(255,196,20,.13),transparent);pointer-events:none}
+.hero .wrap{width:100%}
+.hero .tag{margin-bottom:28px}
+.hero .h1 span{display:block;overflow:hidden}
+.hero .h1 span b{display:block;font-weight:inherit;transform:translateY(105%);animation:up 1.1s var(--ease) forwards}
+.hero .h1 span:nth-child(2) b{animation-delay:.08s}
+.hero .h1 span:nth-child(3) b{animation-delay:.16s}
+@keyframes up{to{transform:none}}
+.hero-sub{display:flex;gap:40px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-top:34px}
+.hero-sub p{max-width:480px;color:#cfcfd6;font-size:clamp(17px,1.4vw,19px)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.fade{opacity:0;transform:translateY(16px);animation:fade 1s .45s var(--ease) forwards}
+@keyframes fade{to{opacity:1;transform:none}}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:56px}
+.chip{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.chip .ic{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(255,196,20,.12);color:var(--y)}
+.chip .ic svg{width:22px;height:22px}
+.chip b{display:block;font-size:15.5px}
+.chip span{font-size:13.5px;color:var(--m)}
+
+/* marquee */
+.mq{position:relative;z-index:2;padding:26px 0;overflow:hidden}
+.mq-band{background:var(--y);color:#0a0a0a;transform:rotate(-1.6deg);margin:0 -20px;box-shadow:0 20px 60px -20px var(--yglow)}
+.mq-band.dark{background:var(--s2);color:#fff;transform:rotate(1.2deg);margin-top:-46px;position:relative;z-index:-1;border-block:1px solid var(--line)}
+.mq-track{display:flex;width:max-content;animation:mq 40s linear infinite}
+.mq-band.dark .mq-track{animation-direction:reverse;animation-duration:55s}
+.mq-track span{display:flex;align-items:center;gap:26px;padding:18px 13px;font:700 clamp(16px,1.6vw,21px)/1 var(--d);letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
+.mq-track span::after{content:"✦";font-size:.8em;opacity:.55}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(250px,auto);gap:16px}
+.card{position:relative;border-radius:var(--r);background:var(--s1);border:1px solid var(--line);padding:34px;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;transition:border-color .4s,transform .5s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,196,20,.12),transparent 60%)}
+.card:hover{border-color:rgba(255,196,20,.28)}
+.card:hover::before{opacity:1}
+.card .num{font:600 13px/1 var(--d);color:var(--y);letter-spacing:.02em;margin-bottom:auto}
+.card .h3{margin:28px 0 12px}
+.card p{color:var(--m);font-size:16px}
+.c-photo{grid-column:span 5;grid-row:span 2;padding:0;justify-content:flex-end}
+.c-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.c-photo:hover img{transform:scale(1.05)}
+.c-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,7,8,0) 35%,rgba(7,7,8,.92))}
+.c-photo .in{padding:34px}
+.c-photo .h3{font-size:clamp(24px,2.6vw,34px);margin:16px 0 12px}
+.c-a{grid-column:span 4}.c-b{grid-column:span 3}
+.c-c{grid-column:span 3}.c-d{grid-column:span 4}
+.c-y{grid-column:span 12;flex-direction:row;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;background:var(--y);color:#0a0a0a;border-color:var(--y)}
+.c-y .h3{margin:14px 0 8px}
+.c-y p{color:rgba(0,0,0,.7)}
+.c-y .num{color:#0a0a0a}
+.c-y::before{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.35),transparent 60%)}
+.c-y .btn{flex:none}
+.bubbles{display:flex;flex-direction:column;gap:8px;margin-bottom:auto}
+.bub{align-self:flex-start;max-width:85%;padding:10px 14px;border-radius:16px 16px 16px 4px;background:var(--s3);font-size:14px;color:#ddd;animation:bub .6s var(--ease) both}
+.bub.me{align-self:flex-end;border-radius:16px 16px 4px 16px;background:var(--y);color:#0a0a0a;font-weight:600}
+.bub small{display:block;font-size:11px;opacity:.55;margin-top:2px}
+.big-n{font:800 clamp(64px,7vw,96px)/.9 var(--d);letter-spacing:-.05em;margin-bottom:auto;background:linear-gradient(180deg,#fff,#7a7a84);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* services */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sv{position:relative;min-height:640px;border-radius:var(--r);overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px,3.4vw,44px);border:1px solid var(--line)}
+.sv>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
+.sv:hover>img{transform:scale(1.06)}
+.sv::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,7,8,.15) 0%,rgba(7,7,8,.55) 45%,rgba(7,7,8,.96) 100%)}
+.sv .tag{position:absolute;top:28px;left:28px}
+.sv .h2{font-size:clamp(30px,3.6vw,50px);margin-bottom:16px}
+.sv>p{color:#c8c8cf;max-width:460px;margin-bottom:24px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.pills span{padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);font-size:14px;font-weight:600;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.sv .btn{align-self:flex-start}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{position:relative;padding:30px 28px 34px;border-radius:var(--r);background:var(--s1);border:1px solid var(--line);overflow:hidden}
+.step::before{counter-increment:s;content:"0" counter(s);display:block;font:800 64px/1 var(--d);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px rgba(255,196,20,.6);margin-bottom:34px}
+.step::after{content:"";position:absolute;left:28px;right:28px;top:118px;height:1px;background:linear-gradient(90deg,var(--y),transparent)}
+.step .h3{margin-bottom:10px}
+.step p{color:var(--m);font-size:15.5px}
+
+/* feed */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.flt{height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line2);font-weight:700;font-size:14.5px;color:#cfcfd6;transition:.25s}
+.flt:hover{border-color:rgba(255,255,255,.35);color:#fff}
+.flt.on{background:#fff;color:#000;border-color:#fff}
+.flt sup{font-size:11px;opacity:.55;margin-left:3px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post{border-radius:var(--r);overflow:hidden;background:var(--s1);border:1px solid var(--line);transition:transform .5s var(--ease),border-color .4s;animation:pop .6s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.98)}}
+.post:hover{transform:translateY(-6px);border-color:rgba(255,196,20,.3)}
+.post-ph{position:relative;aspect-ratio:4/3.4;overflow:hidden;cursor:zoom-in}
+.post-ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.post:hover .post-ph img{transform:scale(1.06)}
+.badge{position:absolute;top:16px;left:16px;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.badge.vykup{background:var(--y);color:#000}
+.badge.podbor{background:rgba(10,10,10,.65);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.post-b{padding:22px 24px 26px}
+.post-b .h3{font-size:21px;margin-bottom:8px}
+.post-b p{color:var(--m);font-size:15px}
+.post-b time{display:block;margin-top:12px;font-size:13px;color:var(--m2)}
+.more{display:flex;justify-content:center;margin-top:40px}
+
+/* reviews marquee */
+.rv-mq{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rv-track{display:flex;gap:16px;width:max-content;animation:mq 60s linear infinite;padding:6px 0}
+.rv-mq:hover .rv-track{animation-play-state:paused}
+.shot{position:relative;width:clamp(240px,22vw,300px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;flex:none;cursor:zoom-in;border:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.shot:hover img{transform:scale(1.06)}
+.shot figcaption{position:absolute;inset:auto 0 0;padding:60px 18px 18px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.shot .stars{color:var(--y);font-size:13px;letter-spacing:2px}
+.shot b{display:block;font:600 17px/1.2 var(--d);letter-spacing:-.02em;margin-top:4px}
+
+/* region */
+.region{border-radius:36px;overflow:hidden;isolation:isolate;position:relative;padding:clamp(36px,6vw,80px);min-height:560px;display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:end;border:1px solid var(--line)}
+.region>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.region::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,7,8,.95) 0%,rgba(7,7,8,.7) 50%,rgba(7,7,8,.35)),linear-gradient(0deg,rgba(7,7,8,.85),transparent 60%)}
+.region .tag{margin-bottom:24px}
+.region p{color:#cfcfd6;margin-top:22px;max-width:520px}
+.cities{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-end}
+.cities span{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:14.5px;font-weight:600;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:.25s}
+.cities span:hover{background:rgba(255,196,20,.15);border-color:rgba(255,196,20,.5)}
+.cities span.main{background:var(--y);color:#000;border-color:var(--y)}
+
+/* faq */
+.faq{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.qa{display:grid;gap:10px}
+details{border-radius:22px;background:var(--s1);border:1px solid var(--line);transition:border-color .3s,background .3s}
+details[open]{border-color:rgba(255,196,20,.3);background:var(--s2)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 26px;font-weight:700;font-size:17.5px}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.07);position:relative;transition:.35s var(--ease)}
+summary i::before,summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;border-radius:2px;background:currentColor;transform:translate(-50%,-50%)}
+summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:.35s var(--ease)}
+details[open] summary i{background:var(--y);color:#000;transform:rotate(180deg)}
+details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+details p{padding:0 26px 24px;color:var(--m)}
+
+/* contact */
+.cta{position:relative;border-radius:40px;background:var(--y);color:#0a0a0a;padding:clamp(32px,6vw,80px);display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,70px);overflow:hidden;isolation:isolate}
+.cta::before{content:"";position:absolute;right:-12%;top:-30%;width:620px;height:620px;z-index:-1;background:url(img/logo-mark.png) center/contain no-repeat;opacity:.09;filter:brightness(0);transform:rotate(-12deg)}
+.cta .h2{font-size:clamp(34px,4.6vw,64px)}
+.cta .lead{color:rgba(0,0,0,.7);margin-top:18px}
+.phone{display:inline-block;margin-top:34px;font:800 clamp(30px,4.2vw,54px)/1 var(--d);letter-spacing:-.04em;border-bottom:3px solid #0a0a0a;padding-bottom:6px;transition:opacity .2s}
+.phone:hover{opacity:.7}
+.msgs{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.msg{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 22px 0 16px;border-radius:999px;background:#0a0a0a;color:#fff;font-weight:700;font-size:15px;transition:transform .3s var(--ease)}
+.msg:hover{transform:translateY(-3px)}
+.msg svg{width:22px;height:22px}
+.msg small{font-weight:500;opacity:.55;font-size:13px}
+form{background:#0a0a0a;color:#fff;border-radius:28px;padding:clamp(24px,3vw,36px);box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+form .h3{margin-bottom:22px}
+.seg{display:grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:999px;background:var(--s2);margin-bottom:16px}
+.seg label{cursor:pointer;text-align:center;padding:12px;border-radius:999px;font-weight:700;font-size:14.5px;color:var(--m);transition:.25s}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--y);color:#000}
+.fld{display:block;margin-bottom:12px}
+.fld input,.fld textarea{width:100%;padding:17px 20px;border-radius:18px;border:1px solid var(--line2);background:var(--s1);color:#fff;font:inherit;font-size:16px;outline:none;transition:border-color .2s}
+.fld input::placeholder,.fld textarea::placeholder{color:var(--m2)}
+.fld input:focus,.fld textarea:focus{border-color:var(--y)}
+.fld textarea{min-height:100px;resize:vertical}
+form .btn{width:100%;margin-top:6px}
+.note{font-size:13px;color:var(--m2);margin-top:14px;text-align:center}
+
+footer{padding:70px 0 40px}
+.ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.ft-logo{width:220px}
+.ft p{color:var(--m);font-size:15px;margin-top:18px;max-width:320px}
+.ft-cols{display:flex;gap:70px;flex-wrap:wrap}
+.ft h4{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--m2);margin-bottom:16px}
+.ft ul{list-style:none;display:grid;gap:9px;font-size:15px;font-weight:600}
+.ft ul a:hover{color:var(--y)}
+.ft-b{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:13px;color:var(--m2)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,5,6,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:80px 20px;opacity:0;visibility:hidden;transition:.3s}
+.lb.on{opacity:1;visibility:visible}
+.lb img{max-height:100%;max-width:min(94vw,1000px);border-radius:18px;object-fit:contain;transform:scale(.96);transition:transform .4s var(--ease)}
+.lb.on img{transform:none}
+.lb-cap{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-weight:700;color:#ccc}
+.lb button{position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;transition:.2s}
+.lb button:hover{background:var(--y);color:#000}
+.lb svg{width:20px;height:20px}
+.lb .x{top:18px;right:18px}.lb .pv{left:18px;top:50%;margin-top:-26px}.lb .nx{right:18px;top:50%;margin-top:-26px}
+
+.mbar{display:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.fade,.hero .h1 span b{opacity:1;transform:none}}
+
+@media (max-width:1080px){
+  .nav,.hdr .btn{display:none}
+  .burger{display:block}
+  .bento{grid-template-columns:repeat(6,1fr)}
+  .c-photo{grid-column:span 6;grid-row:span 1;min-height:460px}
+  .c-a,.c-b,.c-c,.c-d{grid-column:span 3}
+  .c-y{grid-column:span 6}
+  .svc,.faq,.cta,.region{grid-template-columns:1fr}
+  .sv{min-height:560px}
+  .steps{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .hdr{top:10px;padding:0 10px}
+  .hdr-in{height:60px;padding:0 6px 0 16px}
+  .logo-m{height:28px}.logo-w{height:24px}
+  .hero{padding-top:110px}
+  .hero-bg{background-position:74% 40%}
+  .hero::before{background:linear-gradient(180deg,rgba(7,7,8,.35) 0%,rgba(7,7,8,.6) 40%,rgba(7,7,8,.88) 60%,var(--bg) 85%)}
+  .hero-cta{width:100%}
+  .hero-cta .btn{flex:1 1 100%}
+  .chips{grid-template-columns:1fr;margin-top:36px;gap:8px}
+  .chip{padding:14px 16px}
+  .bento{grid-template-columns:1fr;grid-auto-rows:auto}
+  .c-photo,.c-a,.c-b,.c-c,.c-d,.c-y{grid-column:auto}
+  .card{padding:28px;min-height:240px}
+  .c-photo{min-height:420px;padding:0}
+  .steps,.grid{grid-template-columns:1fr}
+  .sv{min-height:520px}
+  .region{padding:30px 22px;border-radius:28px}
+  .cta{border-radius:30px;padding:30px 20px}
+  .msg{flex:1 1 100%;justify-content:center}
+  .mbar{display:flex;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:58;padding:6px;border-radius:999px;background:rgba(15,15,17,.8);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transform:translateY(120%);transition:transform .4s var(--ease)}
+  .mbar.show{transform:none}
+  .mbar a{flex:1;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:15px;background:rgba(255,255,255,.08)}
+  .mbar a:first-child{background:var(--y);color:#000}
+  .mbar svg{width:18px;height:18px}
+  footer{padding-bottom:110px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="arl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="tel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="cash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v4M18 10v4"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
+  <symbol id="tg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.6 2.9 10.8c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5zM9.2 13.4l9.3-5.9c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2z"/></symbol>
+  <symbol id="max" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="6"/><path d="M8 16V8l4 5 4-5v8"/></symbol>
+</svg>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a href="#top" class="logo" aria-label="Максон Авто — на главную"><img class="logo-m" src="img/logo-mark.png" alt=""><img class="logo-w" src="img/logo-word.png" alt="Максон Авто"></a>
+    <nav class="nav">
+      <a href="#why">Почему мы</a>
+      <a href="#services">Услуги</a>
+      <a href="#feed">Сделки</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a href="tel:+79397777116" class="btn btn-y"><svg><use href="#tel"/></svg>8 939 777-71-16</a>
+    <button class="burger" id="burger" aria-label="Меню"><i></i></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav">
+  <a href="#why">Почему мы</a>
+  <a href="#services">Услуги</a>
+  <a href="#feed">Сделки</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#faq">Вопросы</a>
+  <a href="tel:+79397777116" class="btn btn-y"><svg><use href="#tel"/></svg>8 939 777-71-16</a>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="Чёрный внедорожник в студии"></div>
+  <div class="wrap">
+    <div class="tag fade" style="animation-delay:.1s"><i></i>Альметьевск и весь Татарстан</div>
+    <h1 class="h1"><span><b>Выкуп</b></span><span><b>и подбор</b></span><span><b class="y">авто</b></span></h1>
+    <div class="hero-sub fade">
+      <p>Выкуплю вашу машину по честной цене с расчётом в день сделки — или найду ту, на которой захочется ездить годами.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-y" data-mode="vykup">Оценить мой авто<svg><use href="#arr"/></svg></a>
+        <a href="#contact" class="btn btn-g" data-mode="podbor">Подобрать авто</a>
+      </div>
+    </div>
+    <div class="chips fade" style="animation-delay:.6s">
+      <div class="chip"><div class="ic"><svg><use href="#cash"/></svg></div><div><b>Деньги в день сделки</b><span>наличными или переводом</span></div></div>
+      <div class="chip"><div class="ic"><svg><use href="#pin"/></svg></div><div><b>Выезд по Татарстану</b><span>осмотр и сделка у вас</span></div></div>
+      <div class="chip"><div class="ic"><svg><use href="#shield"/></svg></div><div><b>Всё по договору</b><span>цена не меняется на месте</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true">
+  <div class="mq-band"><div class="mq-track" id="mq1"></div></div>
+  <div class="mq-band dark"><div class="mq-track" id="mq2"></div></div>
+</div>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="tag"><i></i>Почему Максон Авто</div>
+        <h2 class="h2 rv">Честно. Быстро.<br><span class="out">Без сюрпризов.</span></h2>
+      </div>
+      <p class="lead rv d1">Работаю так, как хотел бы, чтобы работали со мной: говорю как есть, отвечаю за слова и показываю каждую деталь.</p>
+    </div>
+    <div class="bento">
+      <article class="card c-photo rv">
+        <img src="img/new-detail.jpg" alt="Фара современного автомобиля" loading="lazy">
+        <div class="in">
+          <span class="num">01 — Отбор</span>
+          <h3 class="h3">Только лучшие авто</h3>
+          <p>Большинство вариантов отсеиваются ещё до показа. До вас доходят машины, которые я купил бы сам: чистая история, живой кузов, исправная техника.</p>
+        </div>
+      </article>
+      <article class="card c-a rv d1">
+        <div class="bubbles" id="bubbles">
+          <div class="bub">Здравствуйте! Сколько дадите за мою машину?</div>
+          <div class="bub me">Пришлите пару фото — назову цену 👌</div>
+        </div>
+        <h3 class="h3">Всегда на связи</h3>
+        <p>Отвечаю на звонки и сообщения, объясняю простыми словами. На каждом этапе — фото, видео и понятный вывод.</p>
+      </article>
+      <article class="card c-b rv d2">
+        <span class="num">02 — Честность</span>
+        <h3 class="h3">Говорю как есть</h3>
+        <p>Показываю минусы, а не только плюсы. Никаких скрытых комиссий и «откатов».</p>
+      </article>
+      <article class="card c-c rv">
+        <div class="big-n">116</div>
+        <h3 class="h3">Весь Татарстан</h3>
+        <p>Альметьевск, Бугульма, Лениногорск, Казань, Челны и другие города.</p>
+      </article>
+      <article class="card c-d rv d1">
+        <span class="num">03 — Опыт</span>
+        <h3 class="h3">Вижу то, что скрывают</h3>
+        <p>Скрученный пробег, перекрас, следы ДТП, залоги и ограничения — проверяю до сделки, а не после.</p>
+      </article>
+      <article class="card c-y rv d2">
+        <div>
+          <span class="num">Оценка по фото</span>
+          <h3 class="h3" style="font-size:clamp(24px,2.6vw,36px)">Узнайте цену своего авто — бесплатно</h3>
+          <p>Отправьте фото в WhatsApp или Telegram, назову предварительную цену.</p>
+        </div>
+        <a href="https://wa.me/79397777116?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D1%86%D0%B5%D0%BD%D0%B8%D1%82%D1%8C%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%B0%D0%B2%D1%82%D0%BE" target="_blank" rel="noopener" class="btn btn-k"><svg><use href="#wa"/></svg>Написать в WhatsApp</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="tag"><i></i>Услуги</div>
+        <h2 class="h2 rv">Продать или купить —<br><span class="y">без нервов</span></h2>
+      </div>
+      <p class="lead rv d1">Два направления, один подход: прозрачно, по договору и с личной ответственностью за результат.</p>
+    </div>
+    <div class="svc">
+      <article class="sv rv" id="buyout">
+        <img src="img/new-night.jpg" alt="Современный автомобиль ночью" loading="lazy">
+        <span class="tag"><i></i>Альметьевск и Татарстан</span>
+        <h3 class="h2">Выкуп авто</h3>
+        <p>Покупаю машины в любом состоянии — целые, битые, неисправные, с большим пробегом. Без показов, перекупов и недель ожидания.</p>
+        <div class="pills"><span>Оценка по фото</span><span>Выезд к вам</span><span>Документы беру на себя</span><span>Деньги сразу</span></div>
+        <a href="#contact" class="btn btn-y" data-mode="vykup">Узнать цену<svg><use href="#arr"/></svg></a>
+      </article>
+      <article class="sv rv d1" id="podbor">
+        <img src="img/new-hero.jpg" alt="Подбор автомобиля" loading="lazy" style="object-position:72% 50%">
+        <span class="tag"><i></i>Под ключ</span>
+        <h3 class="h2">Автоподбор</h3>
+        <p>Вы называете бюджет и задачи — я нахожу, проверяю и довожу до сделки. Вам остаётся забрать ключи.</p>
+        <div class="pills"><span>Поиск по всем площадкам</span><span>Диагностика</span><span>Проверка истории</span><span>Торг</span><span>Доставка к дому</span></div>
+        <a href="#contact" class="btn btn-g" data-mode="podbor">Подобрать авто<svg><use href="#arr"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="tag"><i></i>Как работаем</div>
+        <h2 class="h2 rv">4 шага до сделки</h2>
+      </div>
+      <p class="lead rv d1">Что делаю, сколько стоит и когда будет результат — обсуждаем до начала работы.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><h3 class="h3">Заявка</h3><p>Звоните или пишите. Обсуждаем машину, бюджет и сроки.</p></div>
+      <div class="step rv d1"><h3 class="h3">Договор</h3><p>Фиксируем условия и стоимость — без доплат «по ходу».</p></div>
+      <div class="step rv d2"><h3 class="h3">Проверка</h3><p>Осмотр, диагностика, история и юридическая чистота.</p></div>
+      <div class="step rv d3"><h3 class="h3">Сделка</h3><p>Документы, деньги или ключи — в тот же день.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="feed" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="tag"><i></i>Лента сделок</div>
+        <h2 class="h2 rv">Выкупили<br>и <span class="y">подобрали</span></h2>
+      </div>
+      <div class="filters rv d1" id="filters">
+        <button class="flt on" data-f="all">Все<sup></sup></button>
+        <button class="flt" data-f="vykup">Выкуп<sup></sup></button>
+        <button class="flt" data-f="podbor">Подбор<sup></sup></button>
+      </div>
+    </div>
+    <div class="grid" id="posts"></div>
+    <div class="more"><button class="btn btn-g" id="more">Показать ещё<svg><use href="#arr"/></svg></button></div>
+  </div>
+</section>
+
+<section class="sec" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="tag"><i></i>Отзывы</div>
+        <h2 class="h2 rv">Довольные клиенты</h2>
+      </div>
+      <p class="lead rv d1">Реальные люди и реальные сделки. Наведите, чтобы остановить, нажмите — чтобы открыть.</p>
+    </div>
+  </div>
+  <div class="rv-mq"><div class="rv-track" id="shots"></div></div>
+</section>
+
+<section class="sec" id="region" style="padding-top:0">
+  <div class="wrap">
+    <div class="region rv">
+      <img src="img/new-night.jpg" alt="" loading="lazy" style="object-position:70% 60%">
+      <div>
+        <div class="tag"><i></i>География</div>
+        <h2 class="h2">Выкуп авто в Альметьевске и по всему <span class="y">Татарстану</span></h2>
+        <p>Базируюсь в Альметьевске и выезжаю на осмотр и сделку в любой город республики. Подобранную машину пригоню из другого региона и доставлю к дому.</p>
+      </div>
+      <div class="cities" id="cities"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <div>
+      <div class="tag" style="margin-bottom:24px"><i></i>Вопросы</div>
+      <h2 class="h2 rv">Частые вопросы</h2>
+      <p class="lead rv d1" style="margin-top:22px">Не нашли ответ — позвоните, объясню за пару минут.</p>
+    </div>
+    <div class="qa rv d1">
+      <details open><summary>Как быстро вы выкупаете машину?<i></i></summary><p>Предварительную цену называю по фото. Если всё устраивает — приезжаю на осмотр, и расчёт проходит в тот же день.</p></details>
+      <details><summary>Выкупаете машины после ДТП или неисправные?<i></i></summary><p>Да, в любом состоянии: битые, не на ходу, с большим пробегом, с проблемами по двигателю или коробке.</p></details>
+      <details><summary>Работаете только в Альметьевске?<i></i></summary><p>Нет. Базируюсь в Альметьевске, но выезжаю по всему Татарстану: Бугульма, Лениногорск, Азнакаево, Нижнекамск, Набережные Челны, Казань и другие города.</p></details>
+      <details><summary>Сколько стоит автоподбор?<i></i></summary><p>Зависит от бюджета и задачи и фиксируется в договоре до начала работы. Часто за счёт торга с продавцом услуга полностью окупается.</p></details>
+      <details><summary>Сколько времени занимает подбор?<i></i></summary><p>Обычно от нескольких дней до пары недель — зависит от модели и требований. Торопить с покупкой не буду: проблемная машина обходится дороже ожидания.</p></details>
+      <details><summary>Можно с доставкой?<i></i></summary><p>Да. Пригоню автомобиль из другого города и доставлю прямо к вашему дому.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta rv">
+      <div>
+        <h2 class="h2">Обсудим вашу машину?</h2>
+        <p class="lead">Звоните или пишите в любой мессенджер — отвечу и подскажу, как лучше поступить.</p>
+        <a href="tel:+79397777116" class="phone">8 939 777-71-16</a>
+        <div class="msgs">
+          <a class="msg" href="https://wa.me/79397777116" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a>
+          <a class="msg" href="https://t.me/Makson_Avto116" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Telegram <small>@Makson_Avto116</small></a>
+          <a class="msg" href="https://max.ru/" target="_blank" rel="noopener"><svg><use href="#max"/></svg>MAX</a>
+        </div>
+      </div>
+      <form id="form">
+        <h3 class="h3">Оставить заявку</h3>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="mode" value="vykup" checked><span>Продать авто</span></label>
+          <label><input type="radio" name="mode" value="podbor"><span>Подобрать авто</span></label>
+        </div>
+        <label class="fld"><input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required></label>
+        <label class="fld"><input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required></label>
+        <label class="fld"><textarea name="msg" id="msg" placeholder="Марка, год, пробег, город"></textarea></label>
+        <button class="btn btn-y" type="submit"><svg><use href="#wa"/></svg>Отправить в WhatsApp</button>
+        <p class="note">Заявка откроется в WhatsApp уже заполненной</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <img class="ft-logo" src="img/logo-full.png" alt="Максон Авто — выкуп, подбор авто">
+        <p>Выкуп и подбор автомобилей в Альметьевске и по всему Татарстану.</p>
+      </div>
+      <div class="ft-cols">
+        <div><h4>Разделы</h4><ul><li><a href="#buyout">Выкуп авто</a></li><li><a href="#podbor">Автоподбор</a></li><li><a href="#feed">Сделки</a></li><li><a href="#reviews">Отзывы</a></li></ul></div>
+        <div><h4>Связь</h4><ul><li><a href="tel:+79397777116">8 939 777-71-16</a></li><li><a href="https://wa.me/79397777116" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://t.me/Makson_Avto116" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://max.ru/" target="_blank" rel="noopener">MAX</a></li></ul></div>
+      </div>
+    </div>
+    <div class="ft-b"><span>© <span id="year"></span> Максон Авто</span><span>Альметьевск · Республика Татарстан</span></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a href="tel:+79397777116"><svg><use href="#tel"/></svg>Позвонить</a>
+  <a href="https://wa.me/79397777116" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="x" aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="pv" aria-label="Назад"><svg><use href="#arl"/></svg></button>
+  <img id="lbImg" alt="">
+  <button class="nx" aria-label="Вперёд"><svg><use href="#arr"/></svg></button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+/* ===== ЛЕНТА СДЕЛОК =====
+   Новую сделку добавляйте В НАЧАЛО списка.
+   type: "vykup" — выкуп, "podbor" — подбор
+   img: файл из папки img, date: необязательно ("12 октября 2026") */
+const DEALS = [
+  {type:"vykup",  title:"Lada Kalina",       img:"buyout-cash.jpg", date:"", text:"Выкуп с расчётом наличными в день сделки. Договор и документы оформили на месте."},
+  {type:"podbor", title:"Hyundai Solaris",   img:"r10.jpg", date:"", text:"Подбор закрыт. Белый Solaris для ежедневных поездок — проверен от кузова до документов."},
+  {type:"podbor", title:"Kia Cerato",        img:"r8.jpg",  date:"", text:"Надёжный седан с понятной историей. Клиент доволен выбором."},
+  {type:"podbor", title:"Tenet",             img:"r5.jpg",  date:"", text:"Новый кроссовер для всей семьи. Встретили с шарами и бантом."},
+  {type:"podbor", title:"Chery Tiggo",       img:"r7.jpg",  date:"", text:"Подбор в автосалоне: проверили комплектацию и условия, чтобы не переплатить."},
+  {type:"podbor", title:"Mitsubishi Lancer", img:"r6.jpg",  date:"", text:"Стильный седан в отличном состоянии. Ключи вручили в тот же вечер."},
+  {type:"podbor", title:"Volkswagen Polo",   img:"r3.jpg",  date:"", text:"Polo с прозрачной историей обслуживания и живым кузовом."},
+  {type:"podbor", title:"Ford Fiesta",       img:"r4.jpg",  date:"", text:"Компактная и экономичная машина для города — именно то, что было нужно."}
+];
+const LABEL = {vykup:"Выкуп", podbor:"Подбор"};
+const CITIES = ["Альметьевск","Бугульма","Лениногорск","Азнакаево","Джалиль","Нурлат","Бавлы","Заинск","Нижнекамск","Набережные Челны","Елабуга","Чистополь","Казань","и весь Татарстан"];
+const REVIEWS = DEALS.filter(d => d.img.startsWith("r"));
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+$("#year").textContent = new Date().getFullYear();
+
+/* header, menu, mobile bar */
+const hdr = $("#hdr"), mbar = $("#mbar");
+const onScroll = () => { hdr.classList.toggle("solid", scrollY > 40); mbar.classList.toggle("show", scrollY > innerHeight * .6); };
+addEventListener("scroll", onScroll, {passive:true}); addEventListener("load", onScroll); onScroll();
+$("#burger").onclick = () => document.body.classList.toggle("open");
+$$("#mnav a").forEach(a => a.addEventListener("click", () => document.body.classList.remove("open")));
+
+/* marquees */
+const m1 = ["Выкуп авто","Автоподбор","Деньги в день сделки","Проверка перед покупкой","Доставка к дому","Честная цена"].map(t => `<span>${t}</span>`).join("");
+const m2 = CITIES.slice(0,-1).map(c => `<span>${c}</span>`).join("");
+$("#mq1").innerHTML = m1 + m1 + m1 + m1;
+$("#mq2").innerHTML = m2 + m2;
+$("#cities").innerHTML = CITIES.map((c,i) => `<span class="${i ? "" : "main"}">${c}</span>`).join("");
+
+/* bento glow follows cursor */
+$$(".card").forEach(c => c.addEventListener("pointermove", e => {
+  const r = c.getBoundingClientRect();
+  c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+  c.style.setProperty("--my", (e.clientY - r.top) + "px");
+}));
+
+/* lightbox */
+let lbList = [], lbI = 0;
+const lb = $("#lb");
+const lbShow = i => { lbI = (i + lbList.length) % lbList.length; const d = lbList[lbI]; $("#lbImg").src = "img/" + d.img; $("#lbImg").alt = d.title; $("#lbCap").textContent = `${LABEL[d.type]} · ${d.title}`; };
+const lbOpen = (list, i) => { lbList = list; lbShow(i); lb.classList.add("on"); };
+const lbClose = () => lb.classList.remove("on");
+lb.querySelector(".x").onclick = lbClose;
+lb.querySelector(".pv").onclick = () => lbShow(lbI - 1);
+lb.querySelector(".nx").onclick = () => lbShow(lbI + 1);
+lb.onclick = e => { if (e.target === lb) lbClose(); };
+addEventListener("keydown", e => {
+  if (!lb.classList.contains("on")) return;
+  if (e.key === "Escape") lbClose();
+  if (e.key === "ArrowLeft") lbShow(lbI - 1);
+  if (e.key === "ArrowRight") lbShow(lbI + 1);
+});
+
+/* feed */
+const PAGE = 6;
+let flt = "all", shown = PAGE;
+const ok = (d, f) => f === "all" || d.type === f;
+$$("#filters .flt").forEach(b => {
+  b.querySelector("sup").textContent = DEALS.filter(d => ok(d, b.dataset.f)).length;
+  b.onclick = () => { $$("#filters .flt").forEach(x => x.classList.toggle("on", x === b)); flt = b.dataset.f; shown = PAGE; render(); };
+});
+function render(){
+  const list = DEALS.filter(d => ok(d, flt));
+  $("#posts").innerHTML = list.slice(0, shown).map((d,i) => `
+    <article class="post" style="animation-delay:${(i % PAGE) * 70}ms">
+      <div class="post-ph" data-i="${i}"><img src="img/${d.img}" alt="${d.title}" loading="lazy"><span class="badge ${d.type}">${LABEL[d.type]}</span></div>
+      <div class="post-b"><h3 class="h3">${d.title}</h3><p>${d.text}</p>${d.date ? `<time>${d.date}</time>` : ""}</div>
+    </article>`).join("");
+  $$("#posts .post-ph").forEach(el => el.onclick = () => lbOpen(list, +el.dataset.i));
+  $("#more").style.display = shown >= list.length ? "none" : "";
+}
+$("#more").onclick = () => { shown += PAGE; render(); };
+render();
+
+/* reviews marquee */
+const shot = (d,i) => `<figure class="shot" data-i="${i}"><img src="img/${d.img}" alt="${d.title}" loading="lazy"><figcaption><div class="stars">★★★★★</div><b>${d.title}</b></figcaption></figure>`;
+$("#shots").innerHTML = REVIEWS.map(shot).join("") + REVIEWS.map(shot).join("");
+$$("#shots .shot").forEach(el => el.onclick = () => lbOpen(REVIEWS, +el.dataset.i));
+
+/* reveal */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12, rootMargin:"0px 0px -50px"});
+$$(".rv").forEach(el => io.observe(el));
+
+/* form -> WhatsApp */
+const form = $("#form");
+const setMode = m => { form.querySelector(`input[value=${m}]`).checked = true; $("#msg").placeholder = m === "vykup" ? "Марка, год, пробег, город" : "Какой авто ищете и бюджет"; };
+$$("[data-mode]").forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode)));
+$$("input[name=mode]").forEach(r => r.onchange = () => setMode(r.value));
+form.onsubmit = e => {
+  e.preventDefault();
+  const f = new FormData(form);
+  const txt = `Здравствуйте! Заявка с сайта Максон Авто.\nУслуга: ${f.get("mode") === "vykup" ? "выкуп авто" : "подбор авто"}\nИмя: ${f.get("name")}\nТелефон: ${f.get("phone")}` + (f.get("msg") ? `\n${f.get("msg")}` : "");
+  window.open("https://wa.me/79397777116?text=" + encodeURIComponent(txt), "_blank", "noopener");
+};
+</script>
+</body>
+</html>
