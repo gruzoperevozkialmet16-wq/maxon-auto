@@ -31,6 +31,7 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 ::selection{background:var(--y);color:#000}
+[hidden]{display:none!important}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 section{position:relative;scroll-margin-top:90px}
 .sec{padding:clamp(90px,11vw,150px) 0}
@@ -186,6 +187,7 @@ section{position:relative;scroll-margin-top:90px}
 .badge.vykup{background:var(--y);color:#000}
 .badge.podbor{background:rgba(10,10,10,.65);color:#fff;border:1px solid rgba(255,255,255,.2)}
 .post-b{padding:22px 24px 26px}
+.post-b .who{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--y);margin-bottom:8px}
 .post-b .h3{font-size:21px;margin-bottom:8px}
 .post-b p{color:var(--m);font-size:15px}
 .post-b time{display:block;margin-top:12px;font-size:13px;color:var(--m2)}
@@ -201,6 +203,7 @@ section{position:relative;scroll-margin-top:90px}
 .shot figcaption{position:absolute;inset:auto 0 0;padding:60px 18px 18px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
 .shot .stars{color:var(--y);font-size:13px;letter-spacing:2px}
 .shot b{display:block;font:600 17px/1.2 var(--d);letter-spacing:-.02em;margin-top:4px}
+.shot figcaption span{display:block;font-size:13.5px;color:#bbb;margin-top:4px}
 
 /* region */
 .region{border-radius:36px;overflow:hidden;isolation:isolate;position:relative;padding:clamp(36px,6vw,80px);min-height:560px;display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:end;border:1px solid var(--line)}
@@ -613,20 +616,19 @@ footer{padding:70px 0 40px}
 /* ===== ЛЕНТА СДЕЛОК =====
    Новую сделку добавляйте В НАЧАЛО списка.
    type: "vykup" — выкуп, "podbor" — подбор
-   img: файл из папки img, date: необязательно ("12 октября 2026") */
+   name: имя клиента, img: файл из папки img, date: необязательно ("12 октября 2026") */
 const DEALS = [
-  {type:"vykup",  title:"Lada Kalina",       img:"buyout-cash.jpg", date:"", text:"Выкуп с расчётом наличными в день сделки. Договор и документы оформили на месте."},
-  {type:"podbor", title:"Hyundai Solaris",   img:"r10.jpg", date:"", text:"Подбор закрыт. Белый Solaris для ежедневных поездок — проверен от кузова до документов."},
-  {type:"podbor", title:"Kia Cerato",        img:"r8.jpg",  date:"", text:"Надёжный седан с понятной историей. Клиент доволен выбором."},
-  {type:"podbor", title:"Tenet",             img:"r5.jpg",  date:"", text:"Новый кроссовер для всей семьи. Встретили с шарами и бантом."},
-  {type:"podbor", title:"Chery Tiggo",       img:"r7.jpg",  date:"", text:"Подбор в автосалоне: проверили комплектацию и условия, чтобы не переплатить."},
-  {type:"podbor", title:"Mitsubishi Lancer", img:"r6.jpg",  date:"", text:"Стильный седан в отличном состоянии. Ключи вручили в тот же вечер."},
-  {type:"podbor", title:"Volkswagen Polo",   img:"r3.jpg",  date:"", text:"Polo с прозрачной историей обслуживания и живым кузовом."},
-  {type:"podbor", title:"Ford Fiesta",       img:"r4.jpg",  date:"", text:"Компактная и экономичная машина для города — именно то, что было нужно."}
+  {type:"podbor", name:"Дмитрий",        title:"Hyundai Solaris",   img:"r10.jpg", date:"", text:"Подбор закрыт. Белый Solaris для ежедневных поездок — проверен от кузова до документов."},
+  {type:"podbor", name:"Илья",           title:"Kia Cerato",        img:"r8.jpg",  date:"", text:"Надёжный седан с понятной историей. Илья доволен выбором."},
+  {type:"podbor", name:"Ольга и семья",  title:"Tenet",             img:"r5.jpg",  date:"", text:"Новый кроссовер для всей семьи. Встретили с шарами и бантом."},
+  {type:"podbor", name:"Елена",          title:"Chery Tiggo",       img:"r7.jpg",  date:"", text:"Подбор в автосалоне: проверили комплектацию и условия, чтобы не переплатить."},
+  {type:"podbor", name:"Галина Ивановна",title:"Mitsubishi Lancer", img:"r6.jpg",  date:"", text:"Стильный седан в отличном состоянии. Ключи вручили в тот же вечер."},
+  {type:"podbor", name:"Артём",          title:"Volkswagen Polo",   img:"r3.jpg",  date:"", text:"Polo с прозрачной историей обслуживания и живым кузовом."},
+  {type:"podbor", name:"Наталья",        title:"Ford Fiesta",       img:"r4.jpg",  date:"", text:"Компактная и экономичная машина для города — именно то, что было нужно."}
 ];
 const LABEL = {vykup:"Выкуп", podbor:"Подбор"};
 const CITIES = ["Альметьевск","Бугульма","Лениногорск","Азнакаево","Джалиль","Нурлат","Бавлы","Заинск","Нижнекамск","Набережные Челны","Елабуга","Чистополь","Казань","и весь Татарстан"];
-const REVIEWS = DEALS.filter(d => d.img.startsWith("r"));
+const REVIEWS = DEALS.filter(d => d.name);
 
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 $("#year").textContent = new Date().getFullYear();
@@ -655,7 +657,7 @@ $$(".card").forEach(c => c.addEventListener("pointermove", e => {
 /* lightbox */
 let lbList = [], lbI = 0;
 const lb = $("#lb");
-const lbShow = i => { lbI = (i + lbList.length) % lbList.length; const d = lbList[lbI]; $("#lbImg").src = "img/" + d.img; $("#lbImg").alt = d.title; $("#lbCap").textContent = `${LABEL[d.type]} · ${d.title}`; };
+const lbShow = i => { lbI = (i + lbList.length) % lbList.length; const d = lbList[lbI]; $("#lbImg").src = "img/" + d.img; $("#lbImg").alt = d.title; $("#lbCap").textContent = [d.name, d.title].filter(Boolean).join(" · "); };
 const lbOpen = (list, i) => { lbList = list; lbShow(i); lb.classList.add("on"); };
 const lbClose = () => lb.classList.remove("on");
 lb.querySelector(".x").onclick = lbClose;
@@ -674,7 +676,9 @@ const PAGE = 6;
 let flt = "all", shown = PAGE;
 const ok = (d, f) => f === "all" || d.type === f;
 $$("#filters .flt").forEach(b => {
-  b.querySelector("sup").textContent = DEALS.filter(d => ok(d, b.dataset.f)).length;
+  const n = DEALS.filter(d => ok(d, b.dataset.f)).length;
+  b.querySelector("sup").textContent = n;
+  if (!n) b.hidden = true;
   b.onclick = () => { $$("#filters .flt").forEach(x => x.classList.toggle("on", x === b)); flt = b.dataset.f; shown = PAGE; render(); };
 });
 function render(){
@@ -682,16 +686,17 @@ function render(){
   $("#posts").innerHTML = list.slice(0, shown).map((d,i) => `
     <article class="post" style="animation-delay:${(i % PAGE) * 70}ms">
       <div class="post-ph" data-i="${i}"><img src="img/${d.img}" alt="${d.title}" loading="lazy"><span class="badge ${d.type}">${LABEL[d.type]}</span></div>
-      <div class="post-b"><h3 class="h3">${d.title}</h3><p>${d.text}</p>${d.date ? `<time>${d.date}</time>` : ""}</div>
+      <div class="post-b">${d.name ? `<div class="who">${d.name}</div>` : ""}<h3 class="h3">${d.title}</h3><p>${d.text}</p>${d.date ? `<time>${d.date}</time>` : ""}</div>
     </article>`).join("");
   $$("#posts .post-ph").forEach(el => el.onclick = () => lbOpen(list, +el.dataset.i));
   $("#more").style.display = shown >= list.length ? "none" : "";
 }
 $("#more").onclick = () => { shown += PAGE; render(); };
+if (new Set(DEALS.map(d => d.type)).size < 2) $("#filters").hidden = true;
 render();
 
 /* reviews marquee */
-const shot = (d,i) => `<figure class="shot" data-i="${i}"><img src="img/${d.img}" alt="${d.title}" loading="lazy"><figcaption><div class="stars">★★★★★</div><b>${d.title}</b></figcaption></figure>`;
+const shot = (d,i) => `<figure class="shot" data-i="${i}"><img src="img/${d.img}" alt="${d.title}" loading="lazy"><figcaption><div class="stars">★★★★★</div><b>${d.name || d.title}</b>${d.name ? `<span>${d.title}</span>` : ""}</figcaption></figure>`;
 $("#shots").innerHTML = REVIEWS.map(shot).join("") + REVIEWS.map(shot).join("");
 $$("#shots .shot").forEach(el => el.onclick = () => lbOpen(REVIEWS, +el.dataset.i));
 
