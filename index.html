@@ -302,7 +302,7 @@ footer{padding:70px 0 40px}
   .c-photo{grid-column:span 6;grid-row:span 1;min-height:460px}
   .c-a,.c-b,.c-c,.c-d{grid-column:span 3}
   .c-y{grid-column:span 6}
-  .svc,.faq,.cta,.region{grid-template-columns:1fr}
+  .svc,.faq,.cta,.region{grid-template-columns:minmax(0,1fr)}
   .sv{min-height:560px}
   .steps{grid-template-columns:1fr 1fr}
   .grid{grid-template-columns:1fr 1fr}
@@ -328,7 +328,11 @@ footer{padding:70px 0 40px}
   .sv{min-height:520px}
   .region{padding:30px 22px;border-radius:28px}
   .cta{border-radius:30px;padding:30px 20px}
-  .msg{flex:1 1 100%;justify-content:center}
+  .msg{flex:1 1 100%;justify-content:center;min-width:0}
+  .msg small{overflow:hidden;text-overflow:ellipsis}
+  form{padding:22px 16px;border-radius:24px}
+  .seg label{padding:12px 6px;font-size:14px;white-space:nowrap}
+  .phone{font-size:clamp(26px,8.4vw,34px)}
   .mbar{display:flex;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:58;padding:6px;border-radius:999px;background:rgba(15,15,17,.8);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transform:translateY(120%);transition:transform .4s var(--ease)}
   .mbar.show{transform:none}
   .mbar a{flex:1;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:15px;background:rgba(255,255,255,.08)}
